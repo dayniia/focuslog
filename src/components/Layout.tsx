@@ -13,8 +13,8 @@ export const Layout: React.FC = () => {
             <nav className="sidebar">
                 <div className="sidebar-header">
                     <div className="logo">
-                        <div className="logo-icon">L</div>
-                        <span>LearnLog</span>
+                        <div className="logo-icon">F</div>
+                        <span>FocusLog</span>
                     </div>
                 </div>
 

@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# FocusLog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FocusLog is a frictionless, private learning tracker designed to help you stay consistent with your skill-building journey. Built with a focus on simplicity and calm, it allows you to log progress, track milestones, and visualize your learning streaks without the noise of traditional productivity apps.
 
-Currently, two official plugins are available:
+##  Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **🎯 Skill Tracking**: Organize your learning into categories (DSA, Web, CS, etc.) and track progress with dynamic progress bars.
+- **📅 Activity Log**: A chronological timeline of your daily learning efforts.
+- **📈 Consistency Dashboard**: Visualize your progress with interactive charts and keep track of your daily streaks.
+- **☁️ Local-First**: Your data is yours. Everything is stored locally in your browser (LocalStorage) for privacy and offline access.
+- **🎨 Premium UI**: A clean, calm, and lofi-inspired design featuring smooth transitions and a premium aesthetic.
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Type Safety**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) (Modular & Performant)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Routing**: [React Router](https://reactrouter.com/)
 
-## Expanding the ESLint configuration
+## 🛠️ Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dayniia/focuslog.git
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd focuslog
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:5173`.
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/      # Shared UI components (Card, Button, ProgressBar)
+├── features/        # Main application features
+│   ├── activity-log/ # Timeline of learning events
+│   ├── dashboard/    # Main overview & streak tracking
+│   └── learning-list/# skill management & progress updates
+├── store/           # Zustand state management
+├── types.ts         # Global TypeScript definitions
+└── index.css        # Global styles & design system
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔒 Privacy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+FocusLog values your privacy. No data is sent to any server. Your learning journey is stored entirely within your browser's local storage.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+Built with ❤️ for lifelong learners.
