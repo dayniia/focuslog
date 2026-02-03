@@ -31,9 +31,7 @@
 .logo-icon {
     width: 32px;
     height: 32px;
-    background: var(--accent);
-    color: white;
-    border-radius: 8px;
+    color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { LayoutDashboard, BookOpen, History, PlusCircle } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { LearningItemModal } from '../features/learning-list/LearningItemModal';
+import { Logo } from './Logo';
 import './Layout.css';
 
 export const Layout: React.FC = () => {
@@ -13,7 +14,9 @@ export const Layout: React.FC = () => {
             <nav className="sidebar">
                 <div className="sidebar-header">
                     <div className="logo">
-                        <div className="logo-icon">F</div>
+                        <div className="logo-icon">
+                            <Logo size={28} />
+                        </div>
                         <span>FocusLog</span>
                     </div>
                 </div>
