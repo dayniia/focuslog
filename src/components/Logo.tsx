@@ -1,11 +1,11 @@
-import React from 'react';
+import { type FC } from 'react';
 
 interface LogoProps {
     size?: number;
     className?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ size = 24, className }) => {
+export const Logo: FC<LogoProps> = ({ size = 24, className }) => {
     return (
         <svg
             width={size}

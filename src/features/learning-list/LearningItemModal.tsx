@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { type FC, useState, useEffect, type FormEvent } from 'react';
 import { useStore } from '../../store/useStore';
 import { Button, Modal } from '../../components/ui';
 import type { Category, Status, LearningItem } from '../../types';
@@ -9,7 +9,7 @@ interface LearningItemModalProps {
     itemToEdit?: LearningItem | null;
 }
 
-export const LearningItemModal: React.FC<LearningItemModalProps> = ({ isOpen, onClose, itemToEdit }) => {
+export const LearningItemModal: FC<LearningItemModalProps> = ({ isOpen, onClose, itemToEdit }) => {
     const { addItem, updateItem } = useStore();
 
     // Form State
@@ -35,7 +35,7 @@ export const LearningItemModal: React.FC<LearningItemModalProps> = ({ isOpen, on
         }
     }, [itemToEdit, isOpen]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         if (itemToEdit) {
             updateItem(itemToEdit.id, { title, category, status, progress: Number(progress), notes });

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { type FC, useState, useMemo } from 'react';
 import { useStore } from '../../store/useStore';
 import { Card, Button, ProgressBar } from '../../components/ui';
 import { Search, Plus, Edit2, Trash2, Book } from 'lucide-react';
@@ -6,7 +6,7 @@ import type { Category, Status, LearningItem } from '../../types';
 import { LearningItemModal } from './LearningItemModal';
 import './LearningList.css';
 
-export const LearningList: React.FC = () => {
+export const LearningList: FC = () => {
     const { items, updateItem, deleteItem, setAddModalOpen } = useStore();
     const [search, setSearch] = useState('');
     const [filterCategory, setFilterCategory] = useState<Category | 'All'>('All');

@@ -1,11 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import { type FC, useMemo, useState, type FormEvent } from 'react';
 import { useStore } from '../../store/useStore';
 import { Card, Button, ProgressBar } from '../../components/ui';
 import { Flame, CheckCircle, Book, ChevronRight } from 'lucide-react';
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import './Dashboard.css';
 
-export const Dashboard: React.FC = () => {
+export const Dashboard: FC = () => {
     const { items, activities, getStreak, addActivity } = useStore();
     const [logText, setLogText] = useState('');
 
@@ -36,7 +36,7 @@ export const Dashboard: React.FC = () => {
 
     const mostRecentItem = activeItems.sort((a, b) => b.createdAt - a.createdAt)[0];
 
-    const handleQuickLog = (e: React.FormEvent) => {
+    const handleQuickLog = (e: FormEvent) => {
         e.preventDefault();
         if (!logText.trim()) return;
 

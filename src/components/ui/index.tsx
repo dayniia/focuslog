@@ -1,12 +1,12 @@
-import React from 'react';
+import { type FC, type ReactNode, useEffect, type ButtonHTMLAttributes } from 'react';
 import './ui.css';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
     size?: 'sm' | 'md' | 'lg';
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
     children,
     variant = 'primary',
     size = 'md',
@@ -23,11 +23,11 @@ export const Button: React.FC<ButtonProps> = ({
     );
 };
 
-export const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
+export const Card: FC<{ children: ReactNode; className?: string }> = ({ children, className = '' }) => {
     return <div className={`card ${className}`}>{children}</div>;
 };
 
-export const ProgressBar: React.FC<{ progress: number; className?: string }> = ({ progress, className = '' }) => {
+export const ProgressBar: FC<{ progress: number; className?: string }> = ({ progress, className = '' }) => {
     return (
         <div className={`progress-bar-container ${className}`}>
             <div
@@ -42,11 +42,11 @@ interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     title: string;
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
-export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
-    React.useEffect(() => {
+export const Modal: FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+    useEffect(() => {
         const handleEsc = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
         };

@@ -1,10 +1,10 @@
-import React from 'react';
+import { type FC } from 'react';
 import { useStore } from '../../store/useStore';
 import { Card, Button } from '../../components/ui';
 import { Trash2, Calendar as CalendarIcon } from 'lucide-react';
 import './ActivityLog.css';
 
-export const ActivityLog: React.FC = () => {
+export const ActivityLog: FC = () => {
     const { activities, deleteActivity, items } = useStore();
 
     const groupedActivities = activities.reduce((acc, curr) => {

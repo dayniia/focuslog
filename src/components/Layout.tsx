@@ -1,4 +1,4 @@
-import React from 'react';
+import { type FC } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { LayoutDashboard, BookOpen, History, PlusCircle } from 'lucide-react';
 import { useStore } from '../store/useStore';
@@ -6,7 +6,7 @@ import { LearningItemModal } from '../features/learning-list/LearningItemModal';
 import { Logo } from './Logo';
 import './Layout.css';
 
-export const Layout: React.FC = () => {
+export const Layout: FC = () => {
     const { isAddModalOpen, setAddModalOpen } = useStore();
 
     return (
