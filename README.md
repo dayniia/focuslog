@@ -1,12 +1,11 @@
 FocusLog is a frictionless, private learning tracker designed to help you stay consistent with your skill-building journey. Built with a focus on simplicity and calm, it allows you to log progress, track milestones, and visualize your learning streaks without the noise of traditional productivity apps.
 
 <p align="center">
-  <img src="./public/assets/focus_dash.png" width="600" alt="FocusLog Dashboard">
-  <br>
-  <img src="./public/assets/focus_library.png" width="600" alt="FocusLog Library">
+  <img src="./public/assets/focus_dash.png" width="48%" alt="FocusLog Dashboard">
+  <img src="./public/assets/focus_library.png" width="48%" alt="FocusLog Library">
 </p>
 
-*(Screenshots of the premium Sage Green interface)*
+*(The FocusLog interface: Dashboard and Library views)*
 
 ## ✨ Feature Highlights
 
