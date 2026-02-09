@@ -1,12 +1,23 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, History, Plus } from 'lucide-react';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { LayoutDashboard, BookOpen, History, Plus, Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 import './Layout.css';
 
 export const Layout: React.FC = () => {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const location = useLocation();
+
+    // Close menu when route changes
+    React.useEffect(() => {
+        setIsMenuOpen(false);
+    }, [location.pathname]);
     return (
-        <div className="app-layout">
+        <div className={`app-layout ${isMenuOpen ? 'menu-open' : ''}`}>
+            <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+            <div className="sidebar-overlay" onClick={() => setIsMenuOpen(false)}></div>
             <nav className="sidebar">
                 <div className="sidebar-header">
                     <div className="logo-wrapper">

@@ -264,4 +264,36 @@
     .form-grid {
         grid-template-columns: 1fr;
     }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
+    .items-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-text h1 {
+        font-size: 1.75rem;
+    }
+
+    .discovery-bar input {
+        font-size: 0.9375rem;
+    }
+
+    .filter-item {
+        flex: 1;
+    }
+
+    .filter-item select {
+        width: 100%;
+    }
 }

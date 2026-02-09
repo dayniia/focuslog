@@ -267,3 +267,37 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 768px) {
+    .dashboard-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .dashboard-stats-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1rem !important;
+    }
+
+    .stat-value {
+        font-size: 1.375rem;
+    }
+
+    .consistency-card {
+        padding: 1.25rem 1rem !important;
+    }
+
+    .consistency-card h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .stat-icon {
+        width: 44px;
+        height: 44px;
+    }
+}
