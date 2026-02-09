@@ -2,9 +2,12 @@ import React from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { LayoutDashboard, BookOpen, History, Plus, Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
+import { useStore } from '../store/useStore';
+import { SkillModal } from '../features/learning-list/SkillModal';
 import './Layout.css';
 
 export const Layout: React.FC = () => {
+    const { setAddModalOpen } = useStore();
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const location = useLocation();
 
@@ -45,7 +48,7 @@ export const Layout: React.FC = () => {
                 </div>
 
                 <div className="sidebar-footer">
-                    <button className="add-quick-btn" onClick={() => window.dispatchEvent(new CustomEvent('open-add-modal'))}>
+                    <button className="add-quick-btn" onClick={() => setAddModalOpen(true)}>
                         <Plus size={20} strokeWidth={3} />
                         <span>Add Item</span>
                     </button>
@@ -55,6 +58,7 @@ export const Layout: React.FC = () => {
             <main className="main-content">
                 <Outlet />
             </main>
+            <SkillModal />
         </div>
     );
 };

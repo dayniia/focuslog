@@ -25,7 +25,8 @@ interface LearningState {
   
   // UI State
   isAddModalOpen: boolean;
-  setAddModalOpen: (open: boolean) => void;
+  editingItem: LearningItem | null;
+  setAddModalOpen: (open: boolean, item?: LearningItem | null) => void;
   
   // Helper
   getStreak: () => number;
@@ -70,8 +71,9 @@ export const useStore = create<LearningState>()(
       todos: [],
       isDemoData: false,
       isAddModalOpen: false,
+      editingItem: null,
       
-      setAddModalOpen: (open) => set({ isAddModalOpen: open }),
+      setAddModalOpen: (open, item = null) => set({ isAddModalOpen: open, editingItem: item }),
 
       addTodo: (text) => set((state) => {
         const base = state.isDemoData ? { items: [], activities: [], todos: [], isDemoData: false } : state;
