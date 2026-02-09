@@ -1,4 +1,4 @@
-export type Category = 'DSA' | 'Web' | 'CS' | 'Other';
+export type Category = string;
 export type Status = 'Not started' | 'In progress' | 'Completed';
 
 export interface LearningItem {
@@ -8,6 +8,13 @@ export interface LearningItem {
   status: Status;
   progress: number;
   notes: string;
+  createdAt: number;
+}
+
+export interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
   createdAt: number;
 }
 

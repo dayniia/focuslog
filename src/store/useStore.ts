@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { LearningItem, Activity } from '../types';
+import type { LearningItem, Activity, Todo } from '../types';
 
 interface LearningState {
   items: LearningItem[];
   activities: Activity[];
+  todos: Todo[];
   
   // Items
   addItem: (item: Omit<LearningItem, 'id' | 'createdAt'>) => void;
@@ -14,6 +15,12 @@ interface LearningState {
   // Activities
   addActivity: (activity: Omit<Activity, 'id' | 'createdAt'>) => void;
   deleteActivity: (id: string) => void;
+
+  // Todos
+  addTodo: (text: string) => void;
+  toggleTodo: (id: string) => void;
+  deleteTodo: (id: string) => void;
+  clearCompletedTodos: () => void;
   
   // UI State
   isAddModalOpen: boolean;
@@ -28,9 +35,29 @@ export const useStore = create<LearningState>()(
     (set, get) => ({
       items: [],
       activities: [],
+      todos: [],
       isAddModalOpen: false,
       
       setAddModalOpen: (open) => set({ isAddModalOpen: open }),
+
+      addTodo: (text) => set((state) => ({
+        todos: [
+          ...state.todos,
+          { id: crypto.randomUUID(), text, completed: false, createdAt: Date.now() }
+        ]
+      })),
+
+      toggleTodo: (id) => set((state) => ({
+        todos: state.todos.map(t => t.id === id ? { ...t, completed: !t.completed } : t)
+      })),
+
+      deleteTodo: (id) => set((state) => ({
+        todos: state.todos.filter(t => t.id !== id)
+      })),
+
+      clearCompletedTodos: () => set((state) => ({
+        todos: state.todos.filter(t => !t.completed)
+      })),
       
       addItem: (item) => set((state) => ({
         items: [

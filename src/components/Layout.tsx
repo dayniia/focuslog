@@ -1,23 +1,20 @@
-import { type FC } from 'react';
+import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, History, PlusCircle } from 'lucide-react';
-import { useStore } from '../store/useStore';
-import { LearningItemModal } from '../features/learning-list/LearningItemModal';
+import { LayoutDashboard, BookOpen, History, Plus } from 'lucide-react';
 import { Logo } from './Logo';
 import './Layout.css';
 
-export const Layout: FC = () => {
-    const { isAddModalOpen, setAddModalOpen } = useStore();
-
+export const Layout: React.FC = () => {
     return (
         <div className="app-layout">
             <nav className="sidebar">
                 <div className="sidebar-header">
-                    <div className="logo">
-                        <div className="logo-icon">
-                            <Logo size={28} />
+                    <div className="logo-wrapper">
+                        <Logo size={36} />
+                        <div className="logo-text">
+                            <span className="logo-title">FocusLog</span>
+                            <span className="logo-subtitle">Mastery starts here</span>
                         </div>
-                        <span>FocusLog</span>
                     </div>
                 </div>
 
@@ -28,33 +25,25 @@ export const Layout: FC = () => {
                     </NavLink>
                     <NavLink to="/items" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
                         <BookOpen size={20} />
-                        <span>Learning List</span>
+                        <span>Library</span>
                     </NavLink>
                     <NavLink to="/history" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
                         <History size={20} />
-                        <span>Activity Log</span>
+                        <span>History</span>
                     </NavLink>
                 </div>
 
                 <div className="sidebar-footer">
-                    <button className="add-quick-btn" onClick={() => setAddModalOpen(true)}>
-                        <PlusCircle size={20} />
-                        <span>New Skill</span>
+                    <button className="add-quick-btn" onClick={() => window.dispatchEvent(new CustomEvent('open-add-modal'))}>
+                        <Plus size={20} strokeWidth={3} />
+                        <span>Add Item</span>
                     </button>
                 </div>
             </nav>
 
             <main className="main-content">
-                <div className="container">
-                    <Outlet />
-                </div>
+                <Outlet />
             </main>
-
-            <LearningItemModal
-                isOpen={isAddModalOpen}
-                onClose={() => setAddModalOpen(false)}
-            />
         </div>
     );
 };
-

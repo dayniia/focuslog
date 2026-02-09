@@ -52,19 +52,6 @@ FocusLog is a frictionless, private learning tracker designed to help you stay c
 
 5. Open your browser and navigate to `http://localhost:5173`.
 
-## 📂 Project Structure
-
-```text
-src/
-├── components/      # Shared UI components (Card, Button, ProgressBar)
-├── features/        # Main application features
-│   ├── activity-log/ # Timeline of learning events
-│   ├── dashboard/    # Main overview & streak tracking
-│   └── learning-list/# skill management & progress updates
-├── store/           # Zustand state management
-├── types.ts         # Global TypeScript definitions
-└── index.css        # Global styles & design system
-```
 
 ## 🔒 Privacy
 
