@@ -30,30 +30,6 @@ export const Dashboard: React.FC = () => {
             </header>
 
             <div className="dashboard-main">
-                <Card className="consistency-card">
-                    <div className="card-header-row">
-                        <div className="header-info">
-                            <h3>Learning Consistency</h3>
-                            <p className="subtitle">Activity map of the last 12 weeks</p>
-                        </div>
-                        <div className="header-actions">
-                            <span className="dot-menu">•••</span>
-                        </div>
-                    </div>
-                    <Heatmap activities={activities} />
-                    <div className="heatmap-footer">
-                        <div className="legend">
-                            <span>Less</span>
-                            <div className="legend-box level-0"></div>
-                            <div className="legend-box level-1"></div>
-                            <div className="legend-box level-2"></div>
-                            <div className="legend-box level-3"></div>
-                            <div className="legend-box level-4"></div>
-                            <span>More</span>
-                        </div>
-                    </div>
-                </Card>
-
                 <div className="dashboard-grid-secondary">
                     <div className="stats-column">
                         <Card className="compact-stat-card highlight">
@@ -135,6 +111,30 @@ export const Dashboard: React.FC = () => {
                         </form>
                     </Card>
                 </div>
+
+                <Card className="consistency-card">
+                    <div className="card-header-row">
+                        <div className="header-info">
+                            <h3>Learning Consistency</h3>
+                            <p className="subtitle">Activity map of the last 12 weeks</p>
+                        </div>
+                        <div className="header-actions">
+                            <span className="dot-menu">•••</span>
+                        </div>
+                    </div>
+                    <Heatmap activities={activities} />
+                    <div className="heatmap-footer">
+                        <div className="legend">
+                            <span>Less</span>
+                            <div className="legend-box level-0"></div>
+                            <div className="legend-box level-1"></div>
+                            <div className="legend-box level-2"></div>
+                            <div className="legend-box level-3"></div>
+                            <div className="legend-box level-4"></div>
+                            <span>More</span>
+                        </div>
+                    </div>
+                </Card>
             </div>
         </div>
     );
